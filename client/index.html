@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="GotLunchBoxApp">
+<html ng-app="GotLunchBoxApp" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,21 +45,21 @@
                 <form role="form">
                     <div class="form-group">
                         <label for="whoInput">Vem har låda?</label>
-                        <input type="text" class="form-control" id="whoInput" placeholder="Ditt namn">
+                        <input type="text" class="form-control" id="whoInput" placeholder="Ditt namn" ng-model="lunchBox.who">
                     </div>
                     <div class="form-group">
                         <label for="whatInput">Vad har du i lådan?</label>
-                        <input type="text" class="form-control" id="whatInput" placeholder="Din mat">
+                        <input type="text" class="form-control" id="whatInput" placeholder="Din mat" ng-model="lunchBox.what">
                     </div>
                     <div class="form-group">
                         <label for="whenInput">När har du låda?</label>
-                        <input type="date" class="form-control" id="whenInput" placeholder="Datum">
+                        <input type="date" class="form-control" id="whenInput" placeholder="Datum" ng-model="lunchBox.when">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="registerLunchBox()">Save changes</button>
             </div>
         </div>
     </div>
@@ -69,6 +69,8 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
 <script src="app/scripts/app.js"></script>
-<script src="app/scripts/registerlunchbox/registerlunchboxcontroller.js"></script>
+<script src="app/scripts/model/lunchbox.js"></script>
+<script src="app/scripts/service/lunchboxservice.js"></script>
+<script src="app/scripts/controller/registerlunchboxcontroller.js"></script>
 </body>
 </html>
