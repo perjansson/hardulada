@@ -14,9 +14,55 @@
 <body>
 <div class="container-fluid">
     <div class="jumbotron">
-        <h1>Har du låda?</h1>
+        <h1 class="text-center">Har du låda?</h1>
+
+        <p>Är du som jag förbaskat trött på att när man för en gång skull är duktig och tar med sig matlåda till jobbet
+            så har ingen annan det? Och dagen efter, när du inte har med dig, så har alla andra det? Regga här om du har
+            matlåda. Idag, imorgon eller någon annan dag.</p>
+
+        <a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#registerLunchBox">
+            <span class="glyphicon glyphicon-cutlery"></span> Ja för sjutton, jag har ju låda!
+        </a>
     </div>
-    <img src="img/lunch-box.jpg" class="mg-circle center-block img-responsive" width="40%">
+    <div class="row">
+        <div class="col-xs-1 col-sm-3"></div>
+        <div class="col-xs-10 col-sm-6">
+            <img src="img/lunch-box.jpg" width="100%" class="img-rounded img-responsive">
+        </div>
+        <div class="col-xs-1 col-sm-3"></div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerLunchBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Regga att du har låda</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="whoInput">Vem har låda?</label>
+                        <input type="text" class="form-control" id="whoInput" placeholder="Ditt namn">
+                    </div>
+                    <div class="form-group">
+                        <label for="whatInput">Vad har du i lådan?</label>
+                        <input type="text" class="form-control" id="whatInput" placeholder="Din mat">
+                    </div>
+                    <div class="form-group">
+                        <label for="whenInput">När har du låda?</label>
+                        <input type="date" class="form-control" id="whenInput" placeholder="Datum">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
