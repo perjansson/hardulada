@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="GotLunchBoxApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +34,7 @@
 </div>
 
 <div class="modal fade" id="registerLunchBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
+     aria-hidden="true" ng-controller="RegisterLunchBoxCtrl">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -68,5 +68,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+<script src="app/scripts/app.js"></script>
+<script src="app/scripts/registerlunchbox/registerlunchboxcontroller.js"></script>
 </body>
 </html>
