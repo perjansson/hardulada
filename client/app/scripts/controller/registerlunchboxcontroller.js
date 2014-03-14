@@ -1,12 +1,11 @@
 app.controller('RegisterLunchBoxCtrl', function ($rootScope, $scope, lunchBoxService) {
 
-    var lunchBox = aLunchBox();
-
     var registerLunchBox = function () {
-        lunchBoxService.sendLunchBox(lunchBox);
+        lunchBoxService.sendLunchBox($scope.lunchBox);
+        $scope.lunchBox = aLunchBox();
     }
 
-    $scope.lunchBox = lunchBox;
+    $scope.lunchBox = aLunchBox();
     $scope.registerLunchBox = registerLunchBox;
 
 });

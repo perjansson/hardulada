@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 </head>
 <body>
-<div class="container-fluid">
+<div class="container">
     <div class="jumbotron">
         <h1 class="text-center">Har du låda?</h1>
 
@@ -31,6 +31,30 @@
         </div>
         <div class="col-xs-1 col-sm-3"></div>
     </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row" ng-controller="ViewLunchBoxesCtrl">
+        <div ng-show="lunchBoxes.length == 0">
+            <div class="well text-center"><strong>Ingen har reggat lunchlåda än. :(</strong></div>
+        </div>
+        <table class="table table-striped table-hover" ng-show="lunchBoxes.length > 0">
+            <thead>
+            <tr>
+                <th width="40%">Vem</th>
+                <th width="40%">Vad</th>
+                <th width="40%">När</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="lunchBox in lunchBoxes track by $index">
+                <td>{{lunchBox.who}}</td>
+                <td>{{lunchBox.what}}</td>
+                <td>{{lunchBox.when}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <div class="modal fade" id="registerLunchBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -45,21 +69,26 @@
                 <form role="form">
                     <div class="form-group">
                         <label for="whoInput">Vem har låda?</label>
-                        <input type="text" class="form-control" id="whoInput" placeholder="Ditt namn" ng-model="lunchBox.who">
+                        <input type="text" class="form-control" id="whoInput" placeholder="Ditt namn"
+                               ng-model="lunchBox.who">
                     </div>
                     <div class="form-group">
                         <label for="whatInput">Vad har du i lådan?</label>
-                        <input type="text" class="form-control" id="whatInput" placeholder="Din mat" ng-model="lunchBox.what">
+                        <input type="text" class="form-control" id="whatInput" placeholder="Din mat"
+                               ng-model="lunchBox.what">
                     </div>
                     <div class="form-group">
                         <label for="whenInput">När har du låda?</label>
-                        <input type="date" class="form-control" id="whenInput" placeholder="Datum" ng-model="lunchBox.when">
+                        <input type="date" class="form-control" id="whenInput" placeholder="Datum"
+                               ng-model="lunchBox.when">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="registerLunchBox()">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="registerLunchBox()">Save
+                    changes
+                </button>
             </div>
         </div>
     </div>
@@ -72,5 +101,6 @@
 <script src="app/scripts/model/lunchbox.js"></script>
 <script src="app/scripts/service/lunchboxservice.js"></script>
 <script src="app/scripts/controller/registerlunchboxcontroller.js"></script>
+<script src="app/scripts/controller/viewlunchboxes.js"></script>
 </body>
 </html>
