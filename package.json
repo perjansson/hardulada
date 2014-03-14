@@ -1,0 +1,23 @@
+{
+  "name": "hardulada",
+  "version": "0.0.1",
+  "description": "En enkel sajt för att hålla reda på om dina kompisar har matlåda imorgon.",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/perjansson/hardulada.git"
+  },
+  "author": "Per Jansson",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/perjansson/hardulada/issues"
+  },
+  "homepage": "https://github.com/perjansson/hardulada",
+  "dependencies": {
+    "logfmt": "~0.23.0",
+    "express": "~3.4.8"
+  }
+}
