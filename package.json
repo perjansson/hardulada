@@ -16,8 +16,10 @@
     "url": "https://github.com/perjansson/hardulada/issues"
   },
   "homepage": "https://github.com/perjansson/hardulada",
+  "engine": "node >= 0.10.25",
   "dependencies": {
-    "logfmt": "~0.23.0",
-    "express": "~3.4.8"
+    "express": "~3.4.8",
+    "nodemon": "*",
+    "socket.io": "*"
   }
 }
