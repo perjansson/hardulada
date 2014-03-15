@@ -1,1 +1,1 @@
-var app = angular.module('GotLunchBoxApp', []);
+var app = angular.module('GotLunchBoxApp', ['ngResource']);

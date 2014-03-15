@@ -36,7 +36,11 @@ module.exports.saveLunchBox = saveLunchBox;
 
 var findAllLunchBoxes = function (callback) {
     LunchBox.find({}, function (err, documents) {
-        callback(documents);
+        if (err) {
+            return callback(err, null);
+        } else {
+            return callback(null, documents);
+        }
     });
 };
 module.exports.findAllLunchBoxes = findAllLunchBoxes;

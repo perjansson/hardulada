@@ -1,4 +1,4 @@
-function aLunchBox() {
+function anEmptyLunchBox() {
 
     var lunchBox = {
         who: null,
