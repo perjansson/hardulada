@@ -1,0 +1,68 @@
+<!-- Register lunch box -->
+<div class="modal fade" id="register-lunchbox-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true" ng-controller="RegisterLunchBoxCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Regga att du har låda</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="whoInput">Vem har låda?</label>
+                        <input type="text" class="form-control" id="whoInput" placeholder="Ditt namn"
+                               ng-model="lunchBox.who">
+                    </div>
+                    <div class="form-group">
+                        <label for="whatInput">Vad har du i lådan?</label>
+                        <input type="text" class="form-control" id="whatInput" placeholder="Din mat"
+                               ng-model="lunchBox.what">
+                    </div>
+                    <div class="form-group">
+                        <label for="whereInput">Var tänkte du äta lådan?</label>
+                        <input type="text" class="form-control" id="whereInput" placeholder="Företag plats stad?"
+                               ng-model="lunchBox.where">
+                    </div>
+                    <div class="form-group">
+                        <label for="whenInput">När har du låda?</label>
+                        <input type="date" class="form-control" id="whenInput" placeholder="Datum"
+                               ng-model="lunchBox.when">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Avbryt</button>
+                <button type="button" class="btn btn-primary" ng-click="registerLunchBox()"
+                        ng-disabled="notValidLunchBox()" data-dismiss="modal">
+                    Spara
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View lunch boxes -->
+<div class="row" ng-controller="ViewLunchBoxesCtrl">
+    <div ng-show="lunchBoxes.length == 0">
+        <div class="well text-center"><strong>Ingen har reggat lunchlåda än. :(</strong></div>
+    </div>
+    <table class="table table-striped table-hover" ng-show="lunchBoxes.length > 0">
+        <thead>
+        <tr>
+            <th width="25%">Vem</th>
+            <th width="25%">Vad</th>
+            <th width="25%">Var</th>
+            <th width="25%">När</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="lunchBox in lunchBoxes track by $index">
+            <td>{{lunchBox.who}}</td>
+            <td>{{lunchBox.what}}</td>
+            <td>{{lunchBox.where}}</td>
+            <td>{{lunchBox.when | date:'fullDate'}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
