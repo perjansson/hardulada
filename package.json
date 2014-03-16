@@ -1,6 +1,6 @@
 {
   "name": "hardulada",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "En enkel sajt för att hålla reda på om dina kompisar har matlåda imorgon.",
   "main": "web.js",
   "scripts": {

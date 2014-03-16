@@ -35,12 +35,20 @@ var saveLunchBox = function (lunchBoxToSave, callback) {
 module.exports.saveLunchBox = saveLunchBox;
 
 var findAllLunchBoxes = function (callback) {
-    LunchBox.find({}, function (err, documents) {
+    LunchBox.find({}, function (err, lunchBoxes) {
         if (err) {
             return callback(err, null);
         } else {
-            return callback(null, documents);
+            sortLunchBoxes(lunchBoxes);
+            return callback(null, lunchBoxes);
         }
+
+        function sortLunchBoxes(lunchBoxes) {
+            lunchBoxes.sort(function (a, b) {
+                return new Date(a.when).getTime() - new Date(b.when).getTime();
+            });
+        }
+
     });
 };
 module.exports.findAllLunchBoxes = findAllLunchBoxes;
