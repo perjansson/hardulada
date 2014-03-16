@@ -1,16 +1,18 @@
-app.controller('ViewLunchBoxesCtrl', function ($rootScope, $scope) {
+app.controller('ViewLunchBoxesCtrl', function ($rootScope, $scope, LunchBox) {
 
-    var lunchBoxes = [];
-
-    var deRegLunchBoxAddedEvent = $rootScope.$on('lunch box added event', function (event, lunchBox) {
-        lunchBoxAdded(lunchBox);
+    var deRegLunchBoxAddedEvent = $rootScope.$on('lunch box added event', function (event) {
+        findAllLunchBoxes();
     });
 
-    function lunchBoxAdded(lunchBox) {
-        lunchBoxes.push(lunchBox);
+    var findAllLunchBoxes = function () {
+        LunchBox.query(function (lunchBoxes) {
+            $scope.lunchBoxes = lunchBoxes;
+        }, function (errResponse) {
+            console.log("Fail!");
+        });
     }
 
-    $scope.lunchBoxes = lunchBoxes;
+    findAllLunchBoxes();
 
     $scope.$on('$destroy', function () {
         deRegLunchBoxAddedEvent();
