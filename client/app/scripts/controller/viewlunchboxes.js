@@ -7,8 +7,6 @@ app.controller('ViewLunchBoxesCtrl', function ($rootScope, $scope, LunchBox) {
     var findAllLunchBoxes = function () {
         LunchBox.query(function (lunchBoxes) {
             $scope.lunchBoxes = lunchBoxes;
-        }, function (errResponse) {
-            console.log("Fail!");
         });
     }
 
