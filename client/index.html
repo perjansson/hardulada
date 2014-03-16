@@ -14,34 +14,40 @@
 <body>
 <!-- Fork me... -->
 <a href="https://github.com/perjansson/hardulada" target="_blank"><img
-        style="position: absolute; top: 0; left: 0; border: 0;"
+        style="position: absolute; top: 0; left: 0; border: 0; z-index: 50"
         src="https://github-camo.global.ssl.fastly.net/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67"
         alt="Fork me on GitHub"
         data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"></a>
 
-<div class="container">
+<div class="container-fluid">
     <div class="jumbotron">
-        <h1 class="text-center">Har du låda?</h1>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <h1>Har du låda?</h1>
 
-        <p>Är du som jag förbaskat trött på att när man för en gång skull är duktig och tar med sig matlåda till jobbet
-            så har ingen annan det? Och dagen efter, när du inte har med dig, så har alla andra det? Regga här om du har
-            matlåda. Idag, imorgon eller någon annan dag. Så kan jag och alla andra se det. :)</p>
-
-        <a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#register-lunchbox-modal">
-            <span class="glyphicon glyphicon-cutlery"></span> Jag har låda!
-        </a>
-    </div>
-    <div class="row">
-        <div class="col-xs-1 col-sm-3"></div>
-        <div class="col-xs-10 col-sm-6">
-            <img src="img/lunch-box.jpg" width="100%" class="img-rounded img-responsive">
+                <p>
+                    Är du som jag förbaskat trött på att när man för en gång skull är duktig och tar med sig matlåda
+                    till
+                    jobbet så har ingen annan det? Och dagen efter, när du inte har med dig, så har alla andra det?
+                    Regga här om du har matlåda. Idag, imorgon eller någon annan dag. Så kan jag och alla andra se det.
+                    :)
+                </p>
+                <a class="btn btn-primary btn-lg pull-right" role="button" data-toggle="modal"
+                   data-target="#register-lunchbox-modal">
+                    <span class="glyphicon glyphicon-cutlery"></span> Jag har låda!
+                </a>
+            </div>
+            <div class="visible-xs">
+                &nbsp;
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <img src="img/lunch-box.jpg" width="100%" class="img-rounded img-responsive">
+            </div>
         </div>
-        <div class="col-xs-1 col-sm-3"></div>
     </div>
-    <div class="row">
-        &nbsp;
-    </div>
+
     <ng-view/>
+
 </div>
 
 <div ng-include src="'app/views/contact.html'"></div>
