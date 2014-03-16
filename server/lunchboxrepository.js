@@ -39,8 +39,15 @@ var findAllLunchBoxes = function (callback) {
         if (err) {
             return callback(err, null);
         } else {
+            lunchBoxes = lunchBoxes.filter(isToadyOrAfter);
             sortLunchBoxes(lunchBoxes);
             return callback(null, lunchBoxes);
+        }
+
+        function isToadyOrAfter(lunchBox) {
+            var today = new Date();
+            today.setHours(0, 0, 0, 0)
+            return new Date(lunchBox.when).getTime() >= today.getTime();
         }
 
         function sortLunchBoxes(lunchBoxes) {
