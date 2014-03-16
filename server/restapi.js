@@ -4,13 +4,14 @@ var startForApp = function (express, server, app) {
     repo.connectToDb("mongodb://perjansson:jagharlada@oceanic.mongohq.com:10016/app23023996");
 
     app.configure(function () {
-        app.use(express.bodyParser());
+        app.use(express.json());
+        app.use(express.urlencoded());
+        app.use("/", express.static(__dirname + '/../client'));
     });
 
     var port = Number(process.env.PORT || 5000);
     server.listen(port);
 
-    app.use("/", express.static(__dirname + '/../client'));
 
     app.get('/', function (req, res) {
         res.sendfile(__dirname + '/../client/index.html');
