@@ -49,40 +49,40 @@
     </div>
     <!-- Table to show on devices larger than extra small (mobile) -->
     <div ng-show="lunchBoxes.length > 0">
-          Filtrera lunchlådorna: <input ng-model="filterText">
-          <br/>
-         <table class="hidden-xs table table-striped table-hover">
-             <thead>
-             <tr>
-                 <th width="25%">Vem</th>
-                 <th width="25%">Vad</th>
-                 <th width="25%">Var</th>
-                 <th width="25%">När</th>
-             </tr>
-             </thead>
-             <tbody>
-             <tr ng-repeat="lunchBox in lunchBoxes track by $index | filter:filterText">
-                 <td>{{lunchBox.who}}</td>
-                 <td>{{lunchBox.what}}</td>
-                 <td>{{lunchBox.where | whereTags}}</td>
-                 <td>{{lunchBox.when | date:'fullDate'}}</td>
-             </tr>
-             </tbody>
-         </table>
-         <!-- Table to show on devices that are extra small (mobile) -->
-         <table class="visible-xs table table-striped table-hover">
-             <thead>
-             <tr>
-                 <th width="50%">Vem och vad</th>
-                 <th width="50%">Var och när</th>
-             </tr>
-             </thead>
-             <tbody>
-             <tr ng-repeat="lunchBox in lunchBoxes track by $index | filter:filterText">
-                 <td>{{lunchBox.who}} och {{lunchBox.what}}</td>
-                 <td>{{lunchBox.where | whereTags}} och {{lunchBox.when | date:'fullDate'}}</td>
-             </tr>
-             </tbody>
-         </table>
+        <!--Filtrera lunchlådorna: <input ng-model="filterText">
+        <br/>-->
+        <table class="hidden-xs table table-striped table-hover">
+            <thead>
+            <tr>
+                <th width="25%">Vem</th>
+                <th width="25%">Vad</th>
+                <th width="25%">Var</th>
+                <th width="25%">När</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="lunchBox in lunchBoxes track by $index | filter:filterText">
+                <td>{{lunchBox.who}}</td>
+                <td>{{lunchBox.what}}</td>
+                <td>{{lunchBox.where | whereTags}}</td>
+                <td>{{lunchBox.when | date:'fullDate'}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- Table to show on devices that are extra small (mobile) -->
+        <table class="visible-xs table table-striped table-hover">
+            <thead>
+            <tr>
+                <th width="50%">Vem äter vad</th>
+                <th width="50%">Var och när</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="lunchBox in lunchBoxes track by $index | filter:filterText">
+                <td>{{lunchBox.who}} äter {{lunchBox.what}}</td>
+                <td>{{lunchBox.where | whereTags}} på {{lunchBox.when | date:'fullDate'}}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
