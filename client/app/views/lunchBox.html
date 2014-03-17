@@ -60,7 +60,7 @@
         <tr ng-repeat="lunchBox in lunchBoxes track by $index">
             <td>{{lunchBox.who}}</td>
             <td>{{lunchBox.what}}</td>
-            <td>{{lunchBox.where}}</td>
+            <td>{{lunchBox.where | whereTags}}</td>
             <td>{{lunchBox.when | date:'fullDate'}}</td>
         </tr>
         </tbody>
