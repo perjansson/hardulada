@@ -12,7 +12,6 @@ var startForApp = function (express, server, app) {
     var port = Number(process.env.PORT || 5000);
     server.listen(port);
 
-
     app.get('/', function (req, res) {
         res.sendfile(__dirname + '/../client/index.html');
     });
@@ -61,17 +60,3 @@ var startForApp = function (express, server, app) {
     app.post('/api/lunchboxes', addLunchBox);
 }
 module.exports.startForApp = startForApp;
-
-
-/*
- repo.saveLunchBox({who: 'Per', what: 'Lasagne', when: new Date(), where: ['Aptitud', 'Nordea']}, function (err, lunchBox) {
- if (err) {
- console.log("Error saving lunch box: " + JSON.stringify(err));
- } else {
- console.log("Saved lunch box: " + JSON.stringify(lunchBox));
- }
- });
- repo.findAllLunchBoxes(function(lunchBoxes) {
- console.log("Found " + lunchBoxes.length + " lunch box(es): " + JSON.stringify(lunchBoxes));
- });
- */
