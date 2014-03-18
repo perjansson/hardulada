@@ -1,7 +1,7 @@
 var repo = require(__dirname + '/lunchboxrepository.js');
 
 var startForApp = function (express, server, app) {
-    repo.connectToDb("mongodb://perjansson:jagharlada@oceanic.mongohq.com:10016/app23023996");
+    repo.connectToDb();
 
     app.configure(function () {
         app.use(express.json());
