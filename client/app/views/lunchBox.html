@@ -45,21 +45,21 @@
 <!-- View lunch boxes -->
 <div ng-controller="ViewLunchBoxesCtrl">
     <div ng-show="lunchBoxes.length == 0">
-        <div class="well text-center"><strong>Ingen har reggat lunchlåda än. :(</strong></div>
+        <div class="well text-center"><strong>Ingen har reggat lunchlåda än...</strong></div>
     </div>
-    <!-- Table to show on devices larger than extra small (mobile) -->
     <div ng-show="lunchBoxes.length > 0">
         <div class="panel panel-default">
             <div class="panel-heading lunchbox-filter">
                 <div class="pull-right">Filtrera lunchlådorna: <input ng-model="searchparam"></div>
             </div>
-            <table class="hidden-xs table table-striped table-hover">
+            <!-- Table to show on devices larger than extra small (mobile) -->
+            <table class="table table-striped table-hover hidden-xs">
                 <thead>
                 <tr>
-                    <th width="25%">Vem</th>
-                    <th width="25%">Vad</th>
+                    <th width="30%">Vem</th>
+                    <th width="30%">Vad</th>
                     <th width="25%">Var</th>
-                    <th width="25%">När</th>
+                    <th width="15%" class="right">När</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -67,22 +67,22 @@
                     <td>{{lunchBox.who}}</td>
                     <td>{{lunchBox.what}}</td>
                     <td>{{lunchBox.where | whereTags}}</td>
-                    <td>{{lunchBox.when | date:'fullDate'}}</td>
+                    <td class="right">{{lunchBox.when | date:'yyyy-MM-dd'}}</td>
                 </tr>
                 </tbody>
             </table>
             <!-- Table to show on devices that are extra small (mobile) -->
-            <table class="visible-xs table table-striped table-hover">
+            <table class="table table-striped table-hover visible-xs">
                 <thead>
                 <tr>
                     <th width="50%">Vem äter vad</th>
-                    <th width="50%">Var och när</th>
+                    <th width="50%" class="right">Var och när</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="lunchBox in lunchBoxes | filter: searchparam">
                     <td>{{lunchBox.who}} äter {{lunchBox.what}}</td>
-                    <td>{{lunchBox.where | whereTags}} på {{lunchBox.when | date:'fullDate'}}</td>
+                    <td class="right">{{lunchBox.where | whereTags}} den {{lunchBox.when | date:'yyyy-MM-dd'}}</td>
                 </tr>
                 </tbody>
             </table>

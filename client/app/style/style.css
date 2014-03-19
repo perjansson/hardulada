@@ -1,3 +1,7 @@
 .lunchbox-filter {
     height: 45px;
 }
+
+table th.right, td.right {
+    text-align: right;
+}
