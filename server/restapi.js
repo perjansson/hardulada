@@ -1,7 +1,13 @@
-var repo = require(__dirname + '/lunchboxrepository.js');
+var config = require('./config')();
+var repo = null;
+if (config.internet) {
+    repo = require(__dirname + '/lunchboxrepository.js');
+} else  {
+    repo = require('./mock/lunchboxrepositorymock.js');
+}
 
 var startForApp = function (express, server, app) {
-    repo.connectToDb();
+    repo.connectToDb(config.mongoUrl);
 
     app.configure(function () {
         app.use(express.json());
@@ -9,7 +15,7 @@ var startForApp = function (express, server, app) {
         app.use("/", express.static(__dirname + '/../client'));
     });
 
-    var port = Number(process.env.PORT || 5000);
+    var port = Number(config.port);
     server.listen(port);
 
     app.get('/', function (req, res) {
@@ -21,7 +27,6 @@ var startForApp = function (express, server, app) {
         res.header("Access-Control-Allow-Headers", "X-Requested-With");
         res.header("Access-Control-Allow-Methods", "GET, POST", "PUT");
         next();
-
     });
 
     var getApi = function (req, res) {

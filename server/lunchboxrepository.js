@@ -3,8 +3,7 @@ mongoose = require("mongoose");
 var model = require(__dirname + '/lunchbox.js');
 var LunchBox = model.LunchBox;
 
-var connectToDb = function () {
-    var connectionString = process.env.MONGOHQ_URL;
+var connectToDb = function (connectionString) {
     if (mongoose.connection.readyState === 0) { // not open
         var options = {
             server: {
